@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import TodoList from "./TodoList";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
@@ -9,12 +10,12 @@ function App() {
     //タスクを追加する。
     const name = todoNameRef.current.value;
     setTodos((prevTodos) => {
-      return [...prevTodos, { id: "1", name: name, completed: false }];
+      return [...prevTodos, { id: uuidv4(), name: name, completed: false }];
     });
   };
 
   const [todos, setTodos] = useState([
-    { id: 1, name: "Todo1", completed: false },
+    { id: uuidv4(), name: "Todo1", completed: false },
   ]);
   return (
     <>
